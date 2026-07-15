@@ -1,0 +1,74 @@
+{
+  "name": "gettext-lens",
+  "displayName": "Gettext Lens",
+  "description": "Live quality checks, inline quick-fixes, and progress tracking for gettext .po and .pot translation files.",
+  "version": "0.1.0",
+  "publisher": "gettext-lens",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "gettext",
+    "po",
+    "pot",
+    "i18n",
+    "translation",
+    "localization"
+  ],
+  "galleryBanner": {
+    "color": "#2D5F7C",
+    "theme": "dark"
+  },
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "po",
+        "aliases": [
+          "Gettext PO",
+          "PO"
+        ],
+        "extensions": [
+          ".po",
+          ".pot"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "po",
+        "scopeName": "source.po",
+        "path": "./syntaxes/po.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "gettextLens.scanWorkspace",
+        "title": "Gettext: Scan Workspace",
+        "category": "Gettext Lens"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.config.mjs --production",
+    "watch": "node esbuild.config.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^2.22.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.0",
+    "vitest": "4.1.10"
+  }
+}

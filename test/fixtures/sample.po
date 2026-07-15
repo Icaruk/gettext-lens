@@ -1,0 +1,124 @@
+# Gettext catalog fixture for unit testing.
+# Exercises: header, lingui ICU comments, placeholder annotations,
+# embedded JSX-style component tags, emoji, plurals with ICU inline
+# format, fuzzy flag, empty msgstr, HTML tag mismatch (missing,
+# extra, self-closing), duplicate msgid, msgctxt disambiguation,
+# multiline strings, multiple references, special characters, and
+# obsolete entries.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: test-fixture\n"
+"Report-Msgid-Bugs-To: dev@example.org\n"
+"POT-Creation-Date: 2026-01-15 12:00+0000\n"
+"PO-Revision-Date: 2026-01-20 09:30+0000\n"
+"Last-Translator: Test Bot\n"
+"Language-Team: CI Pipeline\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: test-harness\n"
+
+#. js-lingui-explicit-id
+#: src/features/recipes/RecipeList.tsx:42
+msgid "Recetas"
+msgstr "Recipes"
+
+#. placeholder {0}: recipe.name
+#: src/features/recipes/RecipeCard.tsx:15
+msgid "Cocinar {0}"
+msgstr "Cook {0}"
+
+#. placeholder {0}: stepCount
+#. js-lingui:icu=%7B0%2C+plural%2C+one+%7B%23+paso%7D+other+%7B%23+pasos%7D%7D&pluralize_on=0
+#: src/features/recipes/RecipeSteps.tsx:28
+msgid "# paso"
+msgid_plural "# pasos"
+msgstr[0] "# step"
+msgstr[1] "# steps"
+
+#. js-lingui:icu=%7Bcount%2C+plural%2C+one+%7B%23+ingrediente%7D+other+%7B%23+ingredientes%7D%7D&pluralize_on=count
+#: src/features/recipes/IngredientList.tsx:8
+msgid "ingrediente"
+msgid_plural "ingredientes"
+msgstr[0] "ingredient"
+msgstr[1] "ingredients"
+
+#. placeholder {0}: daysLeft
+#. placeholder {1}: daysLeft
+#: src/features/recipes/RecipeDetail.tsx:33
+msgid "Caduca en {0} {1, plural, one {día} other {días}}"
+msgstr "Expires in {0} {1, plural, one {day} other {days}}"
+
+#: src/features/recipes/RecipeList.tsx:100
+#: src/features/recipes/RecipeSearch.tsx:22
+msgid "Buscar"
+msgstr "Search"
+
+#. js-lingui-explicit-id
+#: src/features/recipes/RecipeForm.tsx:58
+msgid "📅 Planificador"
+msgstr "📅 Planner"
+
+#. js-lingui-explicit-id
+#: src/features/recipes/RecipeForm.tsx:59
+msgid "🧂 Ingredientes"
+msgstr "🧂 Ingredients"
+
+#: src/features/recipes/RecipeForm.tsx:12
+msgid "Añadir ingrediente"
+msgstr ""
+
+#: src/features/recipes/RecipeDetail.tsx:77
+#, fuzzy
+msgid "Porciones"
+msgstr "Servings"
+
+#: src/features/recipes/RecipeShare.tsx:5
+msgid "Compartir receta"
+msgstr "Share recipe"
+
+#: src/features/recipes/RecipeShare.tsx:6
+msgid "Compartir <b>esta</b> receta"
+msgstr "Share this recipe"
+
+#: src/features/recipes/RecipeShare.tsx:7
+msgid "Enviar por correo"
+msgstr "Send <img/> by email"
+
+#: src/features/recipes/RecipeShare.tsx:8
+msgid "Pulsa <0>aquí</0> para compartir.<1/>¡Es gratis!"
+msgstr "Click <0>here</0> to share.<1/>It's free!"
+
+#: src/features/recipes/RecipeList.tsx:42
+msgid "Recetas"
+msgstr "Recipes (duplicate)"
+
+msgctxt "verb"
+msgid "Cortar"
+msgstr "Cut"
+
+msgctxt "noun"
+msgid "Cortar"
+msgstr "Slice"
+
+#: src/features/recipes/RecipeDetail.tsx:200
+msgid ""
+"Esta receta requiere "
+"tiempo de preparación"
+msgstr ""
+"This recipe requires "
+"preparation time"
+
+#: src/features/recipes/RecipeImport.tsx:3
+msgid "€"
+msgstr "€"
+
+#: src/features/recipes/RecipeImport.tsx:4
+msgid "¿Gratis?"
+msgstr "Free?"
+
+#~ msgid "Receta antigua"
+#~ msgstr "Old recipe"

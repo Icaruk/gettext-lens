@@ -1,0 +1,122 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Gettext PO",
+  "scopeName": "source.po",
+  "patterns": [
+    { "include": "#comment-extracted" },
+    { "include": "#comment-reference" },
+    { "include": "#comment-flags" },
+    { "include": "#comment-previous" },
+    { "include": "#comment-obsolete" },
+    { "include": "#comment-generic" },
+    { "include": "#keyword-field" },
+    { "include": "#string-content" }
+  ],
+  "repository": {
+    "comment-extracted": {
+      "match": "^#\\.\\s*(.*)",
+      "captures": {
+        "0": { "name": "comment.line.extracted.po" },
+        "1": { "name": "markup.inserted.po" }
+      }
+    },
+    "comment-reference": {
+      "name": "comment.line.reference.po",
+      "match": "^#:.*$"
+    },
+    "comment-flags": {
+      "match": "^#,\\s*(.*)",
+      "captures": {
+        "0": { "name": "comment.line.flags.po" },
+        "1": { "name": "keyword.control.flag.po" }
+      }
+    },
+    "comment-previous": {
+      "name": "comment.line.previous.po",
+      "begin": "^#\\|\\s*",
+      "end": "$",
+      "patterns": [{ "include": "#keyword-field" }]
+    },
+    "comment-obsolete": {
+      "name": "comment.line.obsolete.po",
+      "begin": "^#~",
+      "end": "$",
+      "patterns": [
+        { "include": "#keyword-field" },
+        { "include": "#string-content" }
+      ]
+    },
+    "comment-generic": {
+      "name": "comment.line.translator.po",
+      "match": "^#.*"
+    },
+    "keyword-field": {
+      "match": "\\b(msgctxt|msgid_plural|msgid|msgstr)(\\[\\d+\\])?\\b",
+      "captures": {
+        "1": { "name": "keyword.control.po" },
+        "2": { "name": "constant.numeric.plural-index.po" }
+      }
+    },
+    "string-content": {
+      "name": "string.quoted.double.po",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        { "include": "#html-tag" },
+        { "include": "#html-entity" },
+        { "include": "#escape-seq" },
+        { "include": "#placeholder-named" },
+        { "include": "#placeholder-printf" },
+        { "include": "#placeholder-brace" }
+      ]
+    },
+    "html-tag": {
+      "name": "meta.tag.inline.po",
+      "match": "</?[a-zA-Z][a-zA-Z0-9]*[^>]*/?>",
+      "captures": {
+        "0": {
+          "patterns": [
+            {
+              "match": "(</?)([a-zA-Z][a-zA-Z0-9]*)",
+              "captures": {
+                "1": { "name": "punctuation.definition.tag.po" },
+                "2": { "name": "entity.name.tag.inline.po" }
+              }
+            },
+            {
+              "match": "([a-zA-Z-]+)(=)",
+              "captures": {
+                "1": { "name": "entity.other.attribute-name.po" },
+                "2": { "name": "punctuation.separator.key-value.po" }
+              }
+            },
+            {
+              "match": "(/?>)",
+              "name": "punctuation.definition.tag.po"
+            }
+          ]
+        }
+      }
+    },
+    "html-entity": {
+      "name": "constant.character.entity.po",
+      "match": "&(#[0-9]+|#[xX][0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]*);"
+    },
+    "escape-seq": {
+      "name": "constant.character.escape.po",
+      "match": "\\\\(n|r|t|\\\\|\")"
+    },
+    "placeholder-named": {
+      "name": "constant.other.placeholder.named.po",
+      "match": "%\\([^)]+\\)[a-zA-Z]"
+    },
+    "placeholder-printf": {
+      "name": "constant.other.placeholder.printf.po",
+      "match": "%[-+ #0]*\\d*(?:\\.\\d+)?[diouxXeEfgGsc%]"
+    },
+    "placeholder-brace": {
+      "name": "constant.other.placeholder.interpolation.po",
+      "match": "\\{[a-zA-Z_][a-zA-Z0-9_]*\\}"
+    }
+  }
+}
