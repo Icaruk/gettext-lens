@@ -20,6 +20,7 @@
     "translation",
     "localization"
   ],
+  "icon": "assets/gettext_lens_logo.png",
   "galleryBanner": {
     "color": "#2D5F7C",
     "theme": "dark"
@@ -59,11 +60,13 @@
     "build": "node esbuild.config.mjs --production",
     "watch": "node esbuild.config.mjs",
     "typecheck": "tsc --noEmit",
+    "lint": "biome check --write src test",
     "test": "vitest run",
     "test:watch": "vitest",
     "package": "vsce package"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.4",
     "@types/node": "^20.11.0",
     "@types/vscode": "^1.80.0",
     "@vscode/vsce": "^2.22.0",

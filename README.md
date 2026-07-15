@@ -1,4 +1,8 @@
-# Gettext Lens
+<p align="center">
+  <img src="./assets/gettext_lens_logo.png" alt="Gettext Lens" width="128">
+</p>
+
+<h1 align="center">Gettext Lens</h1>
 
 A lightweight VS Code extension for working with gettext `.po` and `.pot` translation files.
 
