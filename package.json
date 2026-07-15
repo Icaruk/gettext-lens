@@ -3,7 +3,7 @@
   "displayName": "Gettext Lens",
   "description": "Live quality checks, inline quick-fixes, and progress tracking for gettext .po and .pot translation files.",
   "version": "0.1.0",
-  "publisher": "gettext-lens",
+  "publisher": "icaruk",
   "license": "MIT",
   "engines": {
     "vscode": "^1.80.0"
