@@ -5,6 +5,10 @@
   "version": "0.1.0",
   "publisher": "icaruk",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Icaruk/gettext-lens.git"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
