@@ -8,17 +8,17 @@ A lightweight VS Code extension for working with gettext `.po` and `.pot` transl
 
 ![](./assets//screenshot_1.png)
 
-Status bar:
+Status bar:  
 ![](./assets//screenshot_2.png)
 
-This expension helps catching common mistakes:
+This extension helps catching common mistakes:
 
 - empty translations
-- mismatched HTML tags
 - fuzzy entries
+- mismatched HTML tags
 - duplicate strings
-  
-And lets you fix them with a single click.
+
+
 
 ## Features
 
@@ -28,6 +28,11 @@ And lets you fix them with a single click.
 - **Syntax highlighting** — full support for gettext syntax including HTML tags, placeholders, and escape sequences.
 - **Go-to-source** — Ctrl+click any reference comment to jump to the original source file.
 
+
+
 ## Getting started
 
-Open any `.po` or `.pot` file — the extension activates automatically. Run **Gettext: Scan Workspace** from the command palette to get a summary across all your translation files.
+- Open any `.po` or `.pot` file.
+- The extension activates automatically.
+
+You can also run **Gettext: Scan Workspace** from the command palette to get a summary across all your translation files.
